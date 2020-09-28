@@ -3,7 +3,7 @@
 import * as Busboy from 'busboy'
 import * as config from 'config'
 import {createHash} from 'crypto'
-import {Client, Signature} from 'dsteem'
+import {Client, Signature} from '@ericet/blurtjs'
 import * as http from 'http'
 import * as multihash from 'multihashes'
 import * as RateLimiter from 'ratelimiter'

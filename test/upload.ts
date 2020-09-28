@@ -5,7 +5,7 @@ import * as needle from 'needle'
 import * as path from 'path'
 import * as fs from 'fs'
 import * as crypto from 'crypto'
-import {PrivateKey} from 'dsteem'
+import {PrivateKey} from '@ericet/blurtjs'
 
 import {app} from './../src/app'
 import {rpcClient} from './../src/common'

@@ -1,6 +1,6 @@
 import 'mocha'
 import * as assert from 'assert'
-import {PrivateKey} from 'dsteem'
+import {PrivateKey} from '@ericet/blurtjs'
 
 import {rpcClient} from './../src/common'
 
