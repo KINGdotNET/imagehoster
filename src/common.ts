@@ -2,7 +2,7 @@
 
 import {AbstractBlobStore} from 'abstract-blob-store'
 import * as config from 'config'
-import {Client} from '@ericet/blurtjs'
+import {Client} from 'dsteem'
 import {IRouterContext} from 'koa-router'
 import * as Redis from 'redis'
 
@@ -16,7 +16,7 @@ export interface KoaContext extends IRouterContext {
 }
 
 /** Steemd (jussi) RPC client. */
-export const rpcClient = new Client(config.get('rpc_node'))
+export const rpcClient = new Client(config.get('rpc_node'),{chainId:'cd8d90f29ae273abec3eaa7731e25934c63eb654d55080caff2ebb7f5df6381f',addressPrefix:"BLT"})
 
 /** Redis client. */
 export let redisClient: Redis.RedisClient | undefined

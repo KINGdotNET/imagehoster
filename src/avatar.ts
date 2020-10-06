@@ -3,7 +3,7 @@
 import * as config from 'config'
 import { base58Enc } from './utils'
 
-import { Account } from '@ericet/blurtjs'
+import { Account } from 'dsteem'
 import {KoaContext, rpcClient} from './common'
 import {APIError} from './error'
 

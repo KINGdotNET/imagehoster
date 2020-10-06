@@ -5,10 +5,6 @@ interface Blacklist<T> {
 }
 
 /* tslint:disable:max-line-length */
-export const imageBlacklist: Blacklist<string> = []
+export const imageBlacklist: Blacklist<string> = ['']
 
-export const accountBlacklist: Blacklist<string> = [
-    'mpspringer',
-    'aplomb',
-    'iamgod',
-]
+export const accountBlacklist: Blacklist<string> = ['']
