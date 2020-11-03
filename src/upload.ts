@@ -16,7 +16,6 @@ import {readStream, storeExists, storeWrite} from './utils'
 
 const SERVICE_URL = new URL(config.get('service_url'))
 const MAX_IMAGE_SIZE = Number.parseInt(config.get('max_image_size'))
-console
 if (!Number.isFinite(MAX_IMAGE_SIZE)) {
     throw new Error('Invalid max image size')
 }
