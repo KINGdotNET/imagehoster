@@ -31,9 +31,14 @@ app.on('error', (error, ctx: KoaContext) => {
     }
 })
 
+var corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200 
+  }
+
 app.use(loggerMiddleware as any)
 app.use(errorMiddleware as any)
-app.use(cors())
+app.use(cors(corsOptions))
 app.use(routes)
 app.use((ctx: Koa.Context) => {
     throw new APIError({code: APIError.Code.NotFound})

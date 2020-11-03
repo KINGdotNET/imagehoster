@@ -292,7 +292,7 @@ export async function proxyHandler(ctx: KoaContext) {
 
         APIError.assert(metadata.width && metadata.height, APIError.Code.InvalidImage)
 
-        const maxWidth: number = safeParseInt(config.get('proxy_store.max_image_width')) || 1280
+        const maxWidth: number = safeParseInt(config.get('proxy_store.max_image_width')) || 8000
         const maxHeight: number = safeParseInt(config.get('proxy_store.max_image_height')) || 8000
         const maxCustomWidth: number = safeParseInt(config.get('proxy_store.max_custom_image_width')) || 8000
         const maxCustomHeight: number = safeParseInt(config.get('proxy_store.max_custom_image_height')) || 8000

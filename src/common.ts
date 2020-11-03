@@ -16,7 +16,7 @@ export interface KoaContext extends IRouterContext {
 }
 
 /** Steemd (jussi) RPC client. */
-export const rpcClient = new Client(config.get('rpc_node'))
+export const rpcClient = new Client(config.get('rpc_node'),{chainId:'cd8d90f29ae273abec3eaa7731e25934c63eb654d55080caff2ebb7f5df6381f',addressPrefix:"BLT"})
 
 /** Redis client. */
 export let redisClient: Redis.RedisClient | undefined
@@ -39,7 +39,14 @@ function loadStore(key: string): AbstractBlobStore {
     } else if (conf.type === 's3') {
         if (!S3Client) {
             const aws = require('aws-sdk')
-            S3Client = new aws.S3()
+            S3Client = new aws.S3({
+                accessKeyId:conf.get('s3_access_key'),
+                secretAccessKey:conf.get('s3_secret_key'),
+                region:conf.get('s3_region'),
+                endpoint:conf.get('s3_endpoint'),
+                signatureVersion:'v4'
+        })
+        
         }
         return require('s3-blob-store')({
             client: S3Client,

@@ -236,7 +236,7 @@ export async function uploadHandler(ctx: KoaContext) {
     let validSignature = false
     let publicKey
     try {
-         publicKey = signature.recover(imageHash).toString()
+         publicKey = signature.recover(imageHash).toString().replace(/^.{3}/g,'BLT')
     } catch (cause) {
         throw new APIError({code: APIError.Code.InvalidSignature, cause})
     }
@@ -269,7 +269,7 @@ export async function uploadHandler(ctx: KoaContext) {
 
     APIError.assert(limit.remaining > 0, APIError.Code.QoutaExceeded)
 
-    APIError.assert(repLog10(account.reputation) >= UPLOAD_LIMITS.reputation, APIError.Code.Deplorable)
+    // APIError.assert(repLog10(account.reputation) >= UPLOAD_LIMITS.reputation, APIError.Code.Deplorable)
 
     const key = 'D' + multihash.toB58String(multihash.encode(imageHash, 'sha2-256'))
     const url = new URL(`${ key }/${ file.name }`, SERVICE_URL)
